@@ -47,4 +47,4 @@ myInvItem::myInvItem() : ID(0), mod(0), amount(0){}
 myInventory::myInventory(int _slots){
 	this->slots=_slots;
 	this->items= std::vector<myInvItem>(_slots);
-};
+}
