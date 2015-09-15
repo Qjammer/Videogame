@@ -3,8 +3,8 @@
 #include "render.hpp"
 #include <iostream>
 
-const double Pi= M_PIl;
-const double E = M_El;
+const double Pi= 3.14159265358979323846f;
+const double E = 2.71828182845904523536f;
 
 
 int main(){

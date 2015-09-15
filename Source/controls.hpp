@@ -20,12 +20,12 @@ class basicControls{
 };
 
 class myAction{
-	virtual operator()
+	virtual void operator()();
 
 };
 
 class keyHandler{
-	std::unordered_map<sf::Event::KeyEvent,> map;
+	//std::unordered_map<sf::Event::KeyEvent,> map;
 };
 
 
