@@ -8,24 +8,23 @@ const double E = 2.71828182845904523536f;
 
 
 int main(){
-	myBoolBox bbox;
-	bbox.east=false;
-	bbox.west=false;
-	bbox.north=false;
-	bbox.south=false;
-	std::cout<<bbox.dir()<<std::endl;
 	std::unique_ptr<myWindow> wndw(new myWindow);
+	wndw->rWindow->setKeyRepeatEnabled(false);
 	std::shared_ptr<myMovableObject> a(new myMovableObject);
 	std::shared_ptr<myMovableObject> b(new myMovableObject);
+	std::shared_ptr<myMovableObject> map(new myMovableObject);
 	a->setTex("../Sprites/Chars/Jacob.png");
 	b->setTex("../Sprites/Chars/Kung.png");
+	map->setTex("../Sprites/Maps/Maptest3.png");
 	a->updateSpriteTex();
 	b->updateSpriteTex();
+	map->updateSpriteTex();
 	a->sprite.setScale(5,5);
 	wndw->rWindow->setKeyRepeatEnabled(false);
 
 	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(a));
 	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(b));
+	myObjectHandler::backgroundObjects.push_back(std::shared_ptr<myMovableObject>(map));
 	while(wndw->rWindow->isOpen()){
 		sf::Event event;
 		while(wndw->rWindow->pollEvent(event)){
