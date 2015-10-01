@@ -21,6 +21,9 @@ int main(){
 	map->updateSpriteTex();
 	a->sprite.setScale(5,5);
 	wndw->rWindow->setKeyRepeatEnabled(false);
+	a->height=3;
+	b->height=2;
+	map->height=1;
 
 	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(a));
 	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(b));

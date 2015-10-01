@@ -21,6 +21,7 @@ public:
 	myBoolBox collisions;
 	myVector pos={0.0f,0.0f};
 	myVector size={0.0f,0.0f};
+	float height;
 	std::shared_ptr<sf::Texture> tex;
 	sf::Sprite sprite;
 	void move(const myVector&);
