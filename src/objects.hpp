@@ -94,6 +94,7 @@ public:
 };
 
 class myInventory{
+public:
 	std::vector<myInvItem> items;
 	unsigned int slots;
 	myInventory(int);

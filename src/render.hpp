@@ -24,5 +24,4 @@ inline void myWindow::drawSprite(const sf::Sprite& spr){
 	this->rWindow->draw(spr);
 }
 
-
 #endif

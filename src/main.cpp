@@ -29,7 +29,7 @@ int main(){
 	a->height=3;
 	b->height=2;
 	map->height=1;
-	
+
 	while(wndw->rWindow->isOpen()){
 		sf::Event event;
 		while(wndw->rWindow->pollEvent(event)){
@@ -75,7 +75,5 @@ int main(){
 		wndw->rWindow->clear(sf::Color(128,128,128));
 		wndw->drawQueue();
 		wndw->rWindow->display();
-		
 	}
-
 }

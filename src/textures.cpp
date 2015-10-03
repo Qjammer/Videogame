@@ -11,4 +11,4 @@ bool myTextureHandler::pollTex(const std::string& addr){
 	return true;
 }
 
-std::unordered_map<std::string,std::shared_ptr<sf::Texture>> myTextureHandler::textures{};
+std::unordered_map<std::string,std::shared_ptr<sf::Texture>> myTextureHandler::textures;
