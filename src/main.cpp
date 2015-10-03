@@ -3,11 +3,16 @@
 #include "render.hpp"
 #include <iostream>
 
+//Testing
+#include <ctime>
+#include <cstdlib>
+
 const double Pi= 3.14159265358979323846f;
 const double E = 2.71828182845904523536f;
 
 
 int main(){
+	srand(time(0));
 	std::unique_ptr<myWindow> wndw(new myWindow);
 	wndw->rWindow->setKeyRepeatEnabled(false);
 
@@ -28,6 +33,9 @@ int main(){
 	map->updateSpriteTex();
 
 	a->sprite.setScale(5,5);
+	b->sprite.setScale(5,5);
+	b->maxVel=2;
+	b->pos={150.0f,150.0f};
 	wndw->rWindow->setKeyRepeatEnabled(false);
 	a->height=3;
 	b->height=2;
@@ -69,7 +77,11 @@ int main(){
 			}
 		}
 		a->move();
-		b->move(myVector(0,1));
+		b->moving.east=rand()%2;
+		b->moving.west=rand()%2;
+		b->moving.north=rand()%2;
+		b->moving.south=rand()%2;
+		b->move();
 		a->updateSpritePos(wndw->rWindow.get());
 		b->updateSpritePos(wndw->rWindow.get());
 		wndw->fillQueue();
