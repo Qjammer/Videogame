@@ -10,9 +10,14 @@ const double E = 2.71828182845904523536f;
 int main(){
 	std::unique_ptr<myWindow> wndw(new myWindow);
 	wndw->rWindow->setKeyRepeatEnabled(false);
-	std::shared_ptr<myMovableObject> a(new myMovableObject);
-	std::shared_ptr<myMovableObject> b(new myMovableObject);
-	std::shared_ptr<myMovableObject> map(new myMovableObject);
+
+	std::shared_ptr<myPlayer> a(new myPlayer);
+	std::shared_ptr<myNPC> b(new myNPC);
+	std::shared_ptr<myObject> map(new myObject);
+
+	myObjectHandler::addPlayer(a);
+	myObjectHandler::addNPC(b);
+	myObjectHandler::addBackgroundObject(map);
 	a->setTex("../Sprites/Chars/Jacob.png");
 	b->setTex("../Sprites/Chars/Kung.png");
 	map->setTex("../Sprites/Maps/Maptest3.png");
@@ -24,10 +29,7 @@ int main(){
 	a->height=3;
 	b->height=2;
 	map->height=1;
-
-	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(a));
-	myObjectHandler::movableObjects.push_back(std::shared_ptr<myMovableObject>(b));
-	myObjectHandler::backgroundObjects.push_back(std::shared_ptr<myMovableObject>(map));
+	
 	while(wndw->rWindow->isOpen()){
 		sf::Event event;
 		while(wndw->rWindow->pollEvent(event)){

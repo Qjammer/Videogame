@@ -7,6 +7,7 @@
 #include "textures.hpp"
 //#include "render.hpp"
 
+
 class myBoolBox{
 public:
 	bool east;
@@ -56,12 +57,32 @@ class myPlayer : public myCharacterObject{
 
 class myObjectHandler{
 public:
+	static std::list<std::shared_ptr<myObject>> Objects;
 	static std::list<std::shared_ptr<myObject>> backgroundObjects;
 	static std::list<std::shared_ptr<myObject>> unmovableObjects;
 	static std::list<std::shared_ptr<myMovableObject>> movableObjects;
 	static std::list<std::shared_ptr<myNPC>> NPCs;
 	static std::list<std::shared_ptr<myPlayer>> players;
 
+	template<typename PTR>
+	static void addObject(const PTR&);
+	template<typename PTR>
+	static void removeObject(const PTR&);
+
+	static void addBackgroundObject(const std::shared_ptr<myObject>&);
+	static void removeBackgroundObject(const std::shared_ptr<myObject>&);
+
+	static void addUnmovableObject(const std::shared_ptr<myObject>&);
+	static void removeUnmovableObject(const std::shared_ptr<myObject>&);
+
+	static void addMovableObject(const std::shared_ptr<myMovableObject>&);
+	static void removeMovableObject(const std::shared_ptr<myMovableObject>&);
+
+	static void addNPC(const std::shared_ptr<myNPC>&);
+	static void removeNPC(const std::shared_ptr<myNPC>&);
+
+	static void addPlayer(const std::shared_ptr<myPlayer>&);
+	static void removePlayer(const std::shared_ptr<myPlayer>&);
 };
 
 class myInvItem{
@@ -88,5 +109,8 @@ class HUDHandler{
 	static std::list<std::shared_ptr<myHUDObject>> activeHUD;
 
 };
+
+bool compare_height(const std::shared_ptr<myObject>&, const std::shared_ptr<myObject>&);
+
 
 #endif //OBJECTS_H_
