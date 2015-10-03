@@ -18,12 +18,15 @@ int main(){
 	myObjectHandler::addPlayer(a);
 	myObjectHandler::addNPC(b);
 	myObjectHandler::addBackgroundObject(map);
+
 	a->setTex("../Sprites/Chars/Jacob.png");
 	b->setTex("../Sprites/Chars/Kung.png");
 	map->setTex("../Sprites/Maps/Maptest3.png");
+
 	a->updateSpriteTex();
 	b->updateSpriteTex();
 	map->updateSpriteTex();
+
 	a->sprite.setScale(5,5);
 	wndw->rWindow->setKeyRepeatEnabled(false);
 	a->height=3;
@@ -45,7 +48,6 @@ int main(){
 					} else if(event.key.code==sf::Keyboard::Key::S){
 						a->moving.south=true;
 					}
-					//event.key;
 					break;
 				case sf::Event::KeyReleased:
 					if(event.key.code==sf::Keyboard::Key::A){
@@ -67,7 +69,6 @@ int main(){
 			}
 		}
 		a->move();
-		//a->move(myVector(0.707,0.707));
 		b->move(myVector(0,1));
 		a->updateSpritePos(wndw->rWindow.get());
 		b->updateSpritePos(wndw->rWindow.get());
