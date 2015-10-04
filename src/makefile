@@ -2,7 +2,7 @@ CC = g++
 DEBUG = -g
 CFLAGS = -Wall -pedantic -std=c++11 -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
-OBJS = main.o controls.o myvector.o objects.o render.o textures.o
+OBJS = main.o controls.o myvector.o objects.o render.o textures.o events.o
 LIBS = -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio
 EXEC = game
 
@@ -26,6 +26,9 @@ render.o: render.cpp render.hpp objects.hpp
 
 textures.o: textures.cpp textures.hpp objects.hpp
 	$(CC) $(CFLAGS) textures.cpp
+
+events.o: events.hpp events.cpp
+	$(CC) $(CFLAGS) events.cpp
 
 clean:
 	\rm *.o $(EXEC)
