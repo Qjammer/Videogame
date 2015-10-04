@@ -9,7 +9,7 @@ EXEC = game
 $(EXEC): $(OBJS)
 	$(CC) $(LFLAGS) -o game $(OBJS) $(LIBS)
 
-main.o: main.cpp myvector.hpp objects.hpp render.hpp
+main.o: main.cpp myvector.hpp objects.hpp render.hpp events.hpp
 	$(CC) $(CFLAGS) main.cpp
 
 controls.o: controls.cpp controls.hpp

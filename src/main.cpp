@@ -1,6 +1,7 @@
 #include "myvector.hpp"
 #include "objects.hpp"
 #include "render.hpp"
+#include "events.hpp"
 #include <iostream>
 
 //Testing
@@ -13,7 +14,8 @@ const double E = 2.71828182845904523536f;
 
 int main(){
 	srand(time(0));
-	std::unique_ptr<myWindow> wndw(new myWindow);
+	std::shared_ptr<myWindow> wndw(new myWindow);
+	wndw->evntHandler->wndw=std::weak_ptr<myWindow>(wndw);
 	wndw->rWindow->setKeyRepeatEnabled(false);
 
 	std::shared_ptr<myPlayer> a(new myPlayer);
@@ -67,12 +69,15 @@ int main(){
 					} else if(event.key.code==sf::Keyboard::Key::S){
 						a->moving.south=false;
 					}
-				case sf::Event::Resized:
+					break;
+				/*case sf::Event::Resized:
+
 					break;
 				case sf::Event::Closed:
 					wndw->rWindow->close();
-					break;
+					break;*/
 				default:
+					wndw->evntHandler->handleEvent(event);
 					break;
 			}
 		}
