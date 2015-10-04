@@ -17,6 +17,7 @@ class basicControls{
 	myKeyPress right;
 	myKeyPress attack;
 	myKeyPress action;
+	myKeyPress pause;
 };
 
 class myAction{

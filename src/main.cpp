@@ -14,8 +14,10 @@ const double E = 2.71828182845904523536f;
 
 int main(){
 	srand(time(0));
+
 	std::shared_ptr<myWindow> wndw(new myWindow);
 	wndw->evntHandler->wndw=std::weak_ptr<myWindow>(wndw);
+
 	wndw->rWindow->setKeyRepeatEnabled(false);
 
 	std::shared_ptr<myPlayer> a(new myPlayer);
@@ -70,12 +72,6 @@ int main(){
 						a->moving.south=false;
 					}
 					break;
-				/*case sf::Event::Resized:
-
-					break;
-				case sf::Event::Closed:
-					wndw->rWindow->close();
-					break;*/
 				default:
 					wndw->evntHandler->handleEvent(event);
 					break;

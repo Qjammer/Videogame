@@ -23,5 +23,5 @@ myWindow::myWindow(){
 	this->rQueue = std::queue<const sf::Sprite*>();
 	this->evntHandler = std::shared_ptr<myEventHandler>(new myEventHandler);
 	this->pos={200,200};
-	//this->evntHandler->wndw=std::shared_ptr<myWindow>(this);
+	//this->evntHandler->wndw=std::shared_ptr<myWindow>(*this);
 }
