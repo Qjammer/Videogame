@@ -1,8 +1,11 @@
+#include <iostream>
 #include "myvector.hpp"
+#include "controls.hpp"
 #include "objects.hpp"
+
 #include "render.hpp"
 #include "events.hpp"
-#include <iostream>
+
 
 //Testing
 #include <ctime>

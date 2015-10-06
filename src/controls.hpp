@@ -2,6 +2,9 @@
 #define CONTROLS_H_
 #include <SFML/Graphics.hpp>
 #include <unordered_map>
+#include <memory>
+//#include "objects.hpp"
+class myPlayer;
 
 class myKeyPress{
 public:
@@ -11,6 +14,8 @@ public:
 };
 
 class basicControls{
+public:
+	std::shared_ptr<myPlayer> player;
 	myKeyPress up;
 	myKeyPress down;
 	myKeyPress left;

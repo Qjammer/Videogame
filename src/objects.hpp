@@ -5,7 +5,7 @@
 #include <list>
 #include "myvector.hpp"
 #include "textures.hpp"
-//#include "render.hpp"
+#include "controls.hpp"
 
 
 class myBoolBox{
@@ -44,6 +44,7 @@ public:
 
 class myCharacterObject : public myMovableObject{//TODO:Health bar?
 public:
+	//basicControls ctrls;
 	float health;
 };
 
@@ -106,12 +107,14 @@ class myHUDObject : public myObject{
 
 
 class HUDHandler{
+public:
 	static std::list<std::shared_ptr<myHUDObject>> baseHUD;
 	static std::list<std::shared_ptr<myHUDObject>> activeHUD;
 
 };
 
 bool compare_height(const std::shared_ptr<myObject>&, const std::shared_ptr<myObject>&);
+
 
 
 #endif //OBJECTS_H_

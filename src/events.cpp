@@ -1,6 +1,6 @@
 #include "events.hpp"
 
-void myEventHandler::handleEvent(const sf::Event& evnt){
+void myEventHandler::handleEvent(const sf::Event& evnt, const std::weak_ptr<myWindow> wndw){
 	switch(evnt.type){
 		case sf::Event::KeyPressed:
 			break;
